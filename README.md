@@ -2,9 +2,9 @@
 
 **Pontificia Universidad Javeriana · 2026-II · Docente: Pedro Ardila**
 
-> **Estudiante:** [escribe aquí tu nombre completo]
-> **Nombre del proyecto:** [escribe aquí el nombre de tu herramienta]
-> **Fecha de inicio:** [AAAA-MM-DD]
+> **Estudiante:** Gregorio Puyo Gómez 
+> **Nombre del proyecto:** LawTranslate
+> **Fecha de inicio:** 2026-08-23
 
 ---
 
@@ -22,25 +22,28 @@ Bienvenido/a a tu repositorio de proyecto. **Este archivo es tu tablero de mando
 
 ### 1.1 El problema jurídico
 ¿Qué problema **real del derecho colombiano** resuelve tu herramienta? ¿Quién lo sufre hoy y cómo lo resuelve sin tu herramienta?
+Esta herramienta "democratiza" el entendimiento y conocimiento del derecho para el mismo ciudadano que desea entender, solucionar o aprender mas sobre su vida en sociedad y las reglas que regulan su vida.
 
 ### 1.2 Usuarios
 ¿Quién va a usarla? Describe a tu usuario ideal en una frase (ej. *"un arrendatario bogotano que le subieron el canon de arrendamiento más del límite legal"*). Recuerda que al final necesitas **al menos un usuario real** que la pruebe.
+Un estudiante el cual se enfrenta a una expulsión de su institución por razones no justificadas que desee hacer uso de la ley para garantizar sus derechos y no dejar que estos se vulneren por el abuso de la institución y su poco conocimiento de la lay. 
+
 
 ### 1.3 Qué hace y qué NO hace (alcance)
 | ✅ Sí hace | ❌ No hace |
 | --- | --- |
-| [funcionalidad 1] | [fuera de alcance 1] |
-| [funcionalidad 2] | [fuera de alcance 2] |
+| Informar sobre eyes y sentencias | Actuar por parte del usuario en procedimientos legales |
+| Entregar la información de manera simple y entendible  | hacer consultas o recomendaciones jurídicas|
 
 *Consejo de abogado: un alcance pequeño y perfecto vale más que uno grande y roto.*
 
 ### 1.4 Marco jurídico y fuentes
 ¿Qué normas alimentan tu herramienta? Lista tu corpus normativo (leyes, decretos, sentencias — debe ser **pequeño y público**):
-- [ ] Norma/sentencia 1: [nombre + enlace]
-- [ ] Norma/sentencia 2: [nombre + enlace]
+- [ ] Norma/sentencia 1: 1. Base general de todas las normas +[ enlace]](https://www.unidadsolidaria.gov.co/la-entidad/normatividad/Sistema-Único-de-Información-Normativa#:~:text=El%20SUIN%20es%20el%20Sistema%20Único%20de%20Información,sus%20respectivas%20concordancias%20y%20afectaciones%20normativas%20y%20jurisprudenciales.)
+
 
 ### 1.5 Nombre y lema
-Un nombre corto para tu herramienta y una frase que explique qué hace (la usarás en la demo del día de presentaciones).
+LawTranlate "El derecho, en palabras de todos."
 
 ---
 
