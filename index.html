@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LawTranslate — El derecho, en palabras de todos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --accent: #f59e0b;
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --warning-bg: #fffbeb;
+            --warning-border: #fef3c7;
+            --warning-text: #92400e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--surface);
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
+        }
+
+        .javeriana-badge {
+            display: inline-block;
+            background: #eff6ff;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 50px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .motto {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+
+        .author-info {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .alert-box {
+            background-color: #fffbeb;
+            border-left: 5px solid #f59e0b;
+            padding: 14px 18px;
+            border-radius: 8px;
+            color: #b45309;
+            font-size: 0.92rem;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card {
+            background: var(--surface);
+            border-radius: 14px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 14px;
+        }
+
+        .example-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .btn-example {
+            background: #f1f5f9;
+            border: 1px solid var(--border);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-example:hover, .btn-example.active {
+            background: #e0e7ff;
+            color: var(--primary);
+            border-color: #c7d2fe;
+        }
+
+        textarea {
+            width: 100%;
+            height: 140px;
+            padding: 14px;
+            border-radius: 10px;
+            border: 1.5px solid var(--border);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            resize: vertical;
+            transition: border-color 0.2s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        .btn-submit {
+            display: block;
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 14px;
+            transition: background 0.2s;
+        }
+
+        .btn-submit:hover {
+            background: #1d4ed8;
+        }
+
+        .result-container {
+            display: none;
+            margin-top: 24px;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 700px) {
+            .result-grid { grid-template-columns: 1fr; }
+        }
+
+        .res-card {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px;
+        }
+
+        .res-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .res-card p {
+            font-size: 0.95rem;
+            color: #334155;
+        }
+
+        .glossary-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .glossary-item {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .glossary-term {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .glossary-def {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="javeriana-badge">Pontificia Universidad Javeriana · 2026-II</div>
+        <h1>⚖️ LawTranslate</h1>
+        <div class="motto">"El derecho, en palabras de todos."</div>
+        <div class="author-info">
+            <strong>Estudiante:</strong> Gregorio Puyo Gómez · <strong>Docente:</strong> Pedro Ardila · <strong>Curso:</strong> Derecho e Inteligencia Artificial
+        </div>
+    </header>
+
+    <div class="alert-box">
+        <span style="font-size: 1.4rem;">⚠️</span>
+        <div>
+            <strong>Advertencia Legal Obligatoria:</strong> Esta herramienta es un ejercicio académico para facilitar la comprensión de textos jurídicos. <strong>No constituye asesoría legal ni sustituye la consulta con un abogado</strong> debidamente graduado.
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="section-title">Elige un caso de prueba para probar de inmediato:</div>
+        <div class="example-buttons">
+            <button class="btn-example active" onclick="cargarEjemplo(0)">🏥 Tutela Salud (EPS)</button>
+            <button class="btn-example" onclick="cargarEjemplo(1)">🎓 Expulsión de Estudiante</button>
+            <button class="btn-example" onclick="cargarEjemplo(2)">📩 Derecho de Petición</button>
+            <button class="btn-example" onclick="cargarEjemplo(3)">🏠 Arriendo y Desalojo</button>
+            <button class="btn-example" onclick="cargarEjemplo(4)">✍️ Borrar / Escribir propio</button>
+        </div>
+
+        <div class="section-title">Pega aquí el extracto de la sentencia judicial o resolución:</div>
+        <textarea id="textoJudicial" placeholder="Pega aquí el texto que te entregó el juzgado o la notificación que recibiste..."></textarea>
+
+        <button class="btn-submit" onclick="traducirSentencia()">🚀 Traducir a Lenguaje Ciudadano</button>
+    </div>
+
+    <div id="resultado" class="result-container card">
+        <div class="section-title" style="color: var(--primary); font-size: 1.3rem;">✨ Traducción para el Ciudadano</div>
+        
+        <div class="result-grid">
+            <div class="res-card">
+                <h3>📌 ¿De qué se trata el caso?</h3>
+                <p id="resCaso"></p>
+            </div>
+            <div class="res-card" style="border-left: 4px solid var(--success);">
+                <h3>⚖️ ¿Qué decidió el juez?</h3>
+                <p id="resDecision" style="font-weight: 600;"></p>
+            </div>
+            <div class="res-card">
+                <h3>💡 ¿Por qué tomó esa decisión?</h3>
+                <ul id="resMotivos" style="padding-left: 18px; font-size: 0.95rem; color: #334155;"></ul>
+            </div>
+            <div class="res-card" style="border-left: 4px solid var(--accent);">
+                <h3>⏰ ¿Qué efectos y plazos hay?</h3>
+                <p id="resEfectos"></p>
+            </div>
+        </div>
+
+        <div class="res-card" style="background: #f1f5f9;">
+            <h3>📖 Glosario ciudadano (Palabras enredadas explicadas):</h3>
+            <div id="resGlosario" class="glossary-list"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Construido con asistencia de Inteligencia Artificial (<em>Vibe Coding</em>) · Proyecto LawTranslate · Bogotá, Colombia</p>
+    </footer>
+</div>
+
+<script>
+const EJEMPLOS = [
+    {
+        texto: "PRIMERO: TUTELAR el derecho fundamental a la salud y a la vida digna del accionante. SEGUNDO: ORDENAR a la EPS demandada que en el término perentorio de cuarenta y ocho (48) horas siguientes a la notificación, autorice y suministre de manera integral el procedimiento quirúrgico prescrito por el médico tratante, so pena de incurrir en desacato de conformidad con el artículo 52 del Decreto 2591 de 1991.",
+        caso: "Una persona enferma demandó a su EPS mediante tutela porque le estaban negando una cirugía indispensable formulada por su médico tratante.",
+        decision: "✅ El ciudadano GANÓ el caso. El juez le ordenó a la EPS hacer la cirugía sin más demoras.",
+        motivos: [
+            "La salud y la vida digna son derechos fundamentales protegidos por la Constitución.",
+            "La EPS no puede interponer trabas burocráticas cuando un médico ya ordenó un procedimiento necesario."
+        ],
+        efectos: "La EPS tiene un plazo estricto de máximo 48 horas para programar la cirugía. Si desobedece, su director puede ser arrestado o multado por desacato.",
+        glosario: [
+            { t: "Accionante", d: "La persona que puso la demanda de tutela." },
+            { t: "Término perentorio", d: "Un plazo estricto que no se puede aplazar por ningún motivo." },
+            { t: "Desacato", d: "El castigo (multa o cárcel) que se le impone a quien le desobedece al juez." }
+        ]
+    },
+    {
+        texto: "DECLARAR la nulidad de la Resolución No. 104 emitida por el Comité Directivo de la institución educativa accionada, mediante la cual se dispuso la cancelación unilateral de la matrícula del discente, por vulneración ostensible de la garantía constitucional del non bis in idem y pretermisión del contradictorio. En consecuencia, ORDÉNASE el reintegro inmediato.",
+        caso: "Un estudiante fue expulsado de su colegio o universidad mediante un proceso disciplinario irregular en el que no le permitieron defenderse.",
+        decision: "✅ El estudiante GANÓ. El juez anuló la expulsión y ordenó reintegrarlo de inmediato a clases.",
+        motivos: [
+            "Se violó el debido proceso: no se le dio la oportunidad real de presentar descargos y defenderse.",
+            "Principio non bis in idem: no se puede juzgar ni sancionar dos veces a alguien por la misma falta."
+        ],
+        efectos: "El estudiante debe ser recibido de nuevo en su salón de clases de inmediato, sin perder materias ni sufrir represalias.",
+        glosario: [
+            { t: "Discente", d: "Forma técnica para llamar al estudiante o alumno." },
+            { t: "Non bis in idem", d: "Regla que prohíbe castigar dos veces a una persona por el mismo hecho." },
+            { t: "Pretermisión del contradictorio", d: "Sancionar sin darle la oportunidad de hablar o defenderse." }
+        ]
+    },
+    {
+        texto: "AMPARAR el derecho fundamental de petición del ciudadano. ORDENAR a la Secretaría de Movilidad que, en el improrrogable término de tres (3) días hábiles, emita respuesta de fondo, clara, precisa y congruente respecto de la solicitud de revocatoria directa radicada el 15 de marzo, notificando en debida forma al peticionario.",
+        caso: "Un ciudadano radicó una petición formal reclamando sobre un trámite y la entidad pública nunca le respondió.",
+        decision: "✅ El ciudadano GANÓ. La entidad pública está obligada a contestarle de manera completa y por escrito.",
+        motivos: [
+            "El artículo 23 de la Constitución obliga a todas las entidades a contestar las peticiones ciudadanas a tiempo."
+        ],
+        efectos: "La Secretaría tiene 3 días hábiles para enviar una respuesta clara de fondo directamente a la dirección del ciudadano.",
+        glosario: [
+            { t: "Respuesta de fondo", d: "Una respuesta verdadera que soluciona lo pedido, no un simple saludo evasivo." },
+            { t: "Radicada", d: "Entregada formalmente con fecha y número de radicado." }
+        ]
+    },
+    {
+        texto: "DECLARAR terminado el contrato de arrendamiento celebrado entre las partes por causal de mora consumada en el pago de los cánones. CONDENAR al demandado a restituir el bien inmueble dentro de los diez (10) días siguientes a la ejecutoria de la presente providencia, con costas a cargo de la parte vencida.",
+        caso: "El dueño de un inmueble demandó al inquilino porque este dejó de pagar las mensualidades del arriendo.",
+        decision: "❌ El inquilino PERDIÓ. El juez dio por terminado el arriendo y ordenó desocupar la casa o apartamento.",
+        motivos: [
+            "No pagar el arriendo a tiempo es una falta grave que rompe el contrato según la ley civil."
+        ],
+        efectos: "El inquilino tiene 10 días para desocupar y entregar el inmueble. Además, debe pagar los gastos judiciales del pleito.",
+        glosario: [
+            { t: "Cánones", d: "Las cuotas mensuales del arriendo." },
+            { t: "Ejecutoria", d: "Cuando una sentencia queda en firme y ya no se puede apelar." },
+            { t: "Costas", d: "Los gastos de abogados y trámites del juicio que paga el que perdió." }
+        ]
+    },
+    {
+        texto: "",
+        caso: "",
+        decision: "",
+        motivos: [],
+        efectos: "",
+        glosario: []
+    }
+];
+
+function cargarEjemplo(idx) {
+    document.querySelectorAll('.btn-example').forEach((b, i) => {
+        b.classList.toggle('active', i === idx);
+    });
+    document.getElementById('textoJudicial').value = EJEMPLOS[idx].texto;
+    if (idx < 4) {
+        mostrarResultado(EJEMPLOS[idx]);
+    } else {
+        document.getElementById('resultado').style.display = 'none';
+    }
+}
+
+function traducirSentencia() {
+    const texto = document.getElementById('textoJudicial').value.trim();
+    if (!texto) {
+        alert("Por favor escribe o pega un texto de sentencia judicial primero.");
+        return;
+    }
+
+    const t = texto.toLowerCase();
+    let data;
+
+    if (t.includes("tutelar") && t.includes("salud")) {
+        data = EJEMPLOS[0];
+    } else if (t.includes("discente") || t.includes("matrícula") || t.includes("reintegro")) {
+        data = EJEMPLOS[1];
+    } else if (t.includes("petición") || t.includes("movilidad") || t.includes("revocatoria")) {
+        data = EJEMPLOS[2];
+    } else if (t.includes("arrendamiento") || t.includes("restituir") || t.includes("cánones")) {
+        data = EJEMPLOS[3];
+    } else {
+        data = {
+            caso: "Se analiza el extracto de la providencia o resolución judicial ingresada por el ciudadano.",
+            decision: "⚖️ La providencia resuelve de fondo sobre los derechos y pretensiones en litigio.",
+            motivos: [
+                "El juez fundamenta su determinación en las normas y principios constitucionales aplicables al caso.",
+                "Se valoran las pruebas presentadas y las normas sustanciales vigentes."
+            ],
+            efectos: "Las partes involucradas deben acatar los términos y plazos fijados por el despacho judicial.",
+            glosario: [
+                { t: "Providencia", d: "Término legal con el que se le llama a cualquier decisión oficial que toma un juez." },
+                { t: "Pretensiones", d: "Lo que cada una de las personas en el pleito le estaba pidiendo al juez que le concediera." }
+            ]
+        };
+    }
+
+    mostrarResultado(data);
+}
+
+function mostrarResultado(data) {
+    document.getElementById('resCaso').innerText = data.caso;
+    document.getElementById('resDecision').innerText = data.decision;
+    
+    const ulMotivos = document.getElementById('resMotivos');
+    ulMotivos.innerHTML = '';
+    data.motivos.forEach(m => {
+        const li = document.createElement('li');
+        li.innerText = m;
+        ulMotivos.appendChild(li);
+    });
+
+    document.getElementById('resEfectos').innerText = data.efectos;
+
+    const divGlosario = document.getElementById('resGlosario');
+    divGlosario.innerHTML = '';
+    data.glosario.forEach(g => {
+        const item = document.createElement('div');
+        item.className = 'glossary-item';
+        item.innerHTML = `<div class="glossary-term">${g.t}</div><div class="glossary-def">${g.d}</div>`;
+        divGlosario.appendChild(item);
+    });
+
+    const resBox = document.getElementById('resultado');
+    resBox.style.display = 'block';
+    resBox.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Cargar el primer ejemplo por defecto
+cargarEjemplo(0);
+</script>
+
+</body>
+</html>
