@@ -22,25 +22,43 @@ Bienvenido/a a tu repositorio de proyecto. **Este archivo es tu tablero de mando
 
 ### 1.1 El problema jurídico
 ¿Qué problema **real del derecho colombiano** resuelve tu herramienta? ¿Quién lo sufre hoy y cómo lo resuelve sin tu herramienta?
-Esta herramienta "democratiza" el entendimiento y conocimiento del derecho para el mismo ciudadano que desea entender, solucionar o aprender mas sobre su vida en sociedad y las reglas que regulan su vida.
+En Colombia, las sentencias y providencias judiciales están redactadas en un lenguaje técnico, barroco y denso, cargado de latinismos y formalismos procesales que resultan incomprensibles para el ciudadano de a pie. Esto genera una barrera crítica de acceso a la administración de justicia (Art. 229 C.P.): las personas no entienden si ganaron o perdieron un proceso, qué resolvió el juez, qué derechos les fueron reconocidos o qué obligaciones y plazos deben cumplir. Hoy en día, un ciudadano sin recursos económicos para pagar una consulta jurídica particular queda en total indefensión e incertidumbre, viéndose obligado a recurrir a interpretaciones erróneas de terceros o a resignarse sin entender la decisión que afecta su vida, patrimonio o libertad.
 
 ### 1.2 Usuarios
 ¿Quién va a usarla? Describe a tu usuario ideal en una frase (ej. *"un arrendatario bogotano que le subieron el canon de arrendamiento más del límite legal"*). Recuerda que al final necesitas **al menos un usuario real** que la pruebe.
-Un estudiante el cual se enfrenta a una expulsión de su institución por razones no justificadas que desee hacer uso de la ley para garantizar sus derechos y no dejar que estos se vulneren por el abuso de la institución y su poco conocimiento de la lay. 
-
+Cualquier ciudadano colombiano involucrado en un proceso judicial (o afectado por una decisión de tutela, juzgado de familia, civil o laboral) que recibe una providencia o sentencia y no cuenta con conocimientos jurídicos ni con recursos para pagarle a un abogado solo para que le traduzca qué resolvió el juez.
 
 ### 1.3 Qué hace y qué NO hace (alcance)
 | ✅ Sí hace | ❌ No hace |
 | --- | --- |
-| Informar sobre eyes y sentencias | Actuar por parte del usuario en procedimientos legales |
-| Entregar la información de manera simple y entendible  | hacer consultas o recomendaciones jurídicas|
+| Recibir fragmentos o resolutivos de sentencias y providencias judiciales colombianas. | NO da asesoría jurídica personalizada ni diseña estrategias procesales. |
+| Traducir la decisión a lenguaje claro, estructurado en 4 puntos: hechos, decisión del juez, razones principales y efectos/plazos prácticos. | NO redacta demandas, tutelas, recursos ni memoriales legales. |
+| Explicar términos jurídicos complejos o latinismos a través de un glosario ciudadano sencillo. | NO actúa en nombre del usuario ni reemplaza la consulta con un abogado o defensor público. |
+| Citar con precisión las partes y fuentes de la providencia analizada sin inventar contenido. | NO garantiza resultados favorables ante los despachos judiciales. |
 
 *Consejo de abogado: un alcance pequeño y perfecto vale más que uno grande y roto.*
 
 ### 1.4 Marco jurídico y fuentes
 ¿Qué normas alimentan tu herramienta? Lista tu corpus normativo (leyes, decretos, sentencias — debe ser **pequeño y público**):
-- [ ] Norma/sentencia 1: 1. Base general de todas las normas +[ enlace]](https://www.unidadsolidaria.gov.co/la-entidad/normatividad/Sistema-Único-de-Información-Normativa#:~:text=El%20SUIN%20es%20el%20Sistema%20Único%20de%20Información,sus%20respectivas%20concordancias%20y%20afectaciones%20normativas%20y%20jurisprudenciales.)
+- [x] **Fundamento Constitucional:** Artículos 29 (Debido Proceso y Derecho a la Defensa) y 229 (Garantía del Derecho de Acceso a la Administración de Justicia) de la Constitución Política de Colombia.
+- [x] **Política Pública de Lenguaje Claro:** Protocolo de Lenguaje Claro de la Rama Judicial de Colombia y lineamientos del Departamento Nacional de Planeación (DNP) para la simplificación del lenguaje administrativo y judicial.
+- [x] **Corpus piloto de prueba:** Selección de sentencias colombianas reales y públicas (en materia de tutela y derechos ciudadanos) para calibración y verificación de respuestas.
 
+### 1.5 Nombre y lema
+**LawTranslate** — *"El derecho, en palabras de todos."*
+
+---
+
+## 🗺️ Parte 2 — Plan de desarrollo
+
+Marca cada hito cuando lo termines. Los hitos siguen las sesiones del curso.
+
+- [x] **M0 — Descripción y plan** *(con Sesión 1)*: Partes 1 y 2 de este README completas.
+- [ ] **M1 — Asistente con instrucciones v1** *(Sesión 1–2)*: redactaste las instrucciones (prompt de sistema) de tu asistente y funcionan en una herramienta gratuita de chat.
+- [ ] **M2 — Casos de prueba documentados** *(Sesión 2)*: tienes al menos 5 casos de prueba (donde antes fallaba) con resultados guardados en `docs/casos-de-prueba.md`.
+- [ ] **M3 — Corpus conectado (RAG)** *(Sesión 3)*: tu asistente **cita la fuente** normativa que usa y no inventa. Corpus cargado en `corpus/`.
+- [ ] **M4 — Interfaz web desplegada** *(Sesión 4)*: tu herramienta tiene **URL pública** (ver Parte 4) y tu primer usuario real la probó con evidencia.
+- [ ] **M5 — Análisis crítico y demo** *(Sesión 5)*: Parte 7 completada + presentación de 5 minutos.
 
 ### 1.5 Nombre y lema
 LawTranlate "El derecho, en palabras de todos."
