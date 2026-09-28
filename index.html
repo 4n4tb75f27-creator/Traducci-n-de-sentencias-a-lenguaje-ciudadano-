@@ -648,11 +648,6 @@ function analizarTextoJuridico(texto) {
         }
         if (glosario.length >= 4) break;
     }
-        if (t.includes(termino)) {
-            glosario.push({ t: termino.charAt(0).toUpperCase() + termino.slice(1), d: definicion });
-        }
-        if (glosario.length >= 4) break;
-    }
 
     if (glosario.length === 0) {
         glosario.push({ t: "Providencia", d: DICCIONARIO_JURIDICO["providencia"] });
