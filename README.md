@@ -248,8 +248,8 @@ Como parte de la validación del proyecto, se realizó una prueba con una person
 
 La persona utilizó **LawTranslate** para consultar la notificación de un fallo judicial real de tutela y posteriormente se recopiló su percepción sobre la claridad de las 4 tarjetas y la utilidad del glosario.
 
-La evidencia completa de esta prueba se encuentra en:  
-📁 **[`docs/evidencia-usuario.md`](docs/evidencia-usuario.md)**
+La evidencia completa de esta prueba y la grabación se encuentran en:  
+📁 **[`docs/evidencia-usuario.md`](docs/evidencia-usuario.md)** | 🎥 **[Ver video de la prueba con usuario real (Streamable)](https://streamable.com/1dhy5c)**
 
 La prueba demostró que una persona sin formación en leyes pudo identificar en menos de un minuto si el accionante había ganado o perdido el caso y cuál era el plazo de cumplimiento, validando la efectividad pedagógica de la herramienta.
 
@@ -271,7 +271,7 @@ La prueba demostró que una persona sin formación en leyes pudo identificar en 
 | Análisis crítico realizado | ✅ |
 | Usuario externo probado | ✅ |
 | URL pública desplegada y funcional | 🔗 [Ver en vivo](https://4n4tb75f27-creator.github.io/Traducci-n-de-sentencias-a-lenguaje-ciudadano-/) |
-| Evidencia de usuario documentada | 📎 [`docs/evidencia-usuario.md`](docs/evidencia-usuario.md) |
+| Evidencia de usuario documentada | 📎 [`docs/evidencia-usuario.md`](docs/evidencia-usuario.md) · 🎥 [Video en Streamable](https://streamable.com/1dhy5c) |
 | Historial de desarrollo en GitHub | ✅ |
 
 ---
