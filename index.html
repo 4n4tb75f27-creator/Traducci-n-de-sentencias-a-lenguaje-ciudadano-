@@ -355,14 +355,6 @@
         <div class="section-title">Pega aquí el extracto de la sentencia o resolución judicial:</div>
         <textarea id="textoJudicial" placeholder="Pega aquí el texto que te entregó el juzgado o la notificación que recibiste..."></textarea>
 
-        <details class="api-accordion">
-            <summary style="cursor: pointer; font-weight: 500;">⚙️ Conexión con modelo OpenRouter (Opcional)</summary>
-            <div style="margin-top: 8px;">
-                <label>Si tienes una API Key de OpenRouter, pégala aquí para usar LLaMA 3.3 / Gemini en vivo. Si la dejas vacía, se usará el motor analítico de LawTranslate:</label>
-                <input type="password" id="openRouterKey" class="api-input" placeholder="sk-or-v1-...">
-            </div>
-        </details>
-
         <button id="btnSubmit" class="btn-submit" onclick="traducirSentencia()">🚀 Traducir a Lenguaje Ciudadano</button>
 
         <div id="loading" class="loading-spinner">
@@ -524,7 +516,6 @@ async function traducirSentencia() {
         return;
     }
 
-    const apiKey = document.getElementById('openRouterKey').value.trim();
     const btn = document.getElementById('btnSubmit');
     const loading = document.getElementById('loading');
     const resultadoBox = document.getElementById('resultado');
@@ -533,52 +524,7 @@ async function traducirSentencia() {
     loading.style.display = 'block';
     resultadoBox.style.display = 'none';
 
-    // Si el usuario proporcionó una API Key de OpenRouter, llamamos a la IA real en la nube
-    if (apiKey) {
-        try {
-            const promptSistema = `Eres LawTranslate, un asistente pedagógico de Colombia. Tu único trabajo es traducir decisiones y sentencias judiciales colombianas a lenguaje ciudadano, claro y sin rodeos. Responde ÚNICAMENTE en formato JSON válido con esta estructura exacta:
-{
-  "caso": "Breve resumen en 2 o 3 frases del conflicto",
-  "decision": "Directo: si ganó o perdió el demandante o qué ordenó el juez",
-  "esFavorable": true,
-  "motivos": ["Motivo 1 en palabras sencillas", "Motivo 2 en palabras sencillas"],
-  "efectos": "Plazos y qué debe hacer cada parte ahora",
-  "glosario": [{"t": "Término técnico", "d": "Significado en lenguaje común"}]
-}`;
-
-            const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-                method: "POST",
-                headers: {
-                    "Authorization": `Bearer ${apiKey}`,
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    model: "meta-llama/llama-3.3-70b-instruct:free",
-                    messages: [
-                        { role: "system", content: promptSistema },
-                        { role: "user", content: `Analiza y traduce esta sentencia judicial:\n\n${texto}` }
-                    ]
-                })
-            });
-
-            if (res.ok) {
-                const jsonRes = await res.json();
-                const contentStr = jsonRes.choices[0].message.content;
-                const match = contentStr.match(/\{[\s\S]*\}/);
-                if (match) {
-                    const parsed = JSON.parse(match[0]);
-                    mostrarResultado(parsed);
-                    btn.disabled = false;
-                    loading.style.display = 'none';
-                    return;
-                }
-            }
-        } catch (e) {
-            console.log("Fallo OpenRouter, usando motor analítico local:", e);
-        }
-    }
-
-    // Motor Analítico Jurídico Inteligente (Funciona sin internet ni claves)
+    // Motor Analítico Pedagógico Integrado (Procesamiento ético, seguro y privado sin exponer claves al usuario)
     setTimeout(() => {
         const data = analizarTextoJuridico(texto);
         mostrarResultado(data);

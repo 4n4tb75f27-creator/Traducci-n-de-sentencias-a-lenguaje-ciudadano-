@@ -118,7 +118,7 @@ La herramienta fue desarrollada utilizando tecnologías accesibles, gratuitas y 
                     └─────────────────────────┘
 ```
 
-**Seguridad y Privacidad:** Las claves de API opcionales se manejan localmente en la memoria del navegador y no se almacenan ni se publican en el repositorio público.
+**Seguridad y Privacidad:** Las claves de API no se exponen ni se solicitan al usuario en el frontend. Se gestionan de forma segura mediante variables de entorno del servidor (`os.getenv("OPENROUTER_API_KEY")` o secretos de plataforma), y el sistema cuenta con un motor analítico local autónomo que opera al 100% sin requerir claves externas.
 
 ---
 

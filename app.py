@@ -53,8 +53,8 @@ with st.sidebar:
     st.markdown("👨‍⚖️ **Estudiante:** Gregorio Puyo Gómez")
     st.markdown("👨‍🏫 **Docente:** Pedro Ardila")
     st.markdown("---")
-    st.markdown("### 🔑 Conexión a Modelo de IA")
-    api_key = st.text_input("OpenRouter API Key (Opcional)", type="password", help="Si tienes una clave de OpenRouter gratuita la puedes ingresar aquí. Si no, la app usará el motor pedagógico incorporado.")
+    st.markdown("### 🔒 Seguridad y Privacidad")
+    st.caption("La API Key se gestiona de forma segura a través de variables de entorno del servidor (`os.getenv`), sin ser expuesta ni solicitada al usuario en la interfaz gráfica.")
     st.markdown("---")
     st.markdown("### 🎯 Objetivo")
     st.caption("Facilitar el acceso a la justicia traduciendo providencias judiciales colombianas a lenguaje claro y comprensible para cualquier ciudadano.")
@@ -210,9 +210,14 @@ if btn_traducir:
         st.warning("⚠️ Por favor pega algún texto o selecciona un caso de ejemplo arriba.")
     else:
         with st.spinner("Desmenuzando la sentencia a lenguaje ciudadano..."):
+            # Obtener API key desde variable de entorno del servidor (no en el frontend)
+            env_api_key = os.getenv("OPENROUTER_API_KEY")
+            if not env_api_key and hasattr(st, "secrets") and "OPENROUTER_API_KEY" in st.secrets:
+                env_api_key = st.secrets["OPENROUTER_API_KEY"]
+            
             traduccion_ia = None
-            if api_key:
-                traduccion_ia = traducir_con_openrouter(texto_usuario, api_key)
+            if env_api_key:
+                traduccion_ia = traducir_con_openrouter(texto_usuario, env_api_key)
             
             st.success("¡Traducción completada!")
             
